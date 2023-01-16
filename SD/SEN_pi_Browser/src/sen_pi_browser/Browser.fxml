@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.web.WebView?>
+
+
+<AnchorPane id="AnchorPane" prefHeight="700.0" prefWidth="960.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/19" fx:controller="sen_pi_browser.BrowserController">
+   <children>
+      <WebView fx:id="webView" layoutX="14.0" layoutY="177.0" prefHeight="510.0" prefWidth="931.0" />
+      <TextField fx:id="srcField" layoutX="14.0" layoutY="39.0" onAction="#loadPage" prefHeight="36.0" prefWidth="720.0" promptText="Search Here!" />
+      <Button layoutX="756.0" layoutY="45.0" mnemonicParsing="false" onAction="#loadPage" prefHeight="25.0" prefWidth="184.0" text="Search" />
+   </children>
+</AnchorPane>
