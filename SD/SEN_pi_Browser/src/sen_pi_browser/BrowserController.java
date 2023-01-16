@@ -10,6 +10,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.TextField;
+import javafx.scene.web.WebEngine;
 import javafx.scene.web.WebView;
 
 /**
@@ -28,15 +29,19 @@ public class BrowserController implements Initializable {
 
     @FXML
     private WebView webView;
+    
+    private WebEngine engine;
 
     @FXML
-    void loadPage(ActionEvent event) {
-
+    void loadPage( ) {
+        engine.load("http://www.google.com");
     }
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
+        engine = webView.getEngine();
+        loadPage();
     }    
     
 }
