@@ -28,9 +28,11 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Hyperlink;
+import javafx.scene.control.PasswordField;
 import javafx.scene.control.Tab;
 import javafx.scene.control.TabPane;
 import javafx.scene.control.TextField;
+import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import javafx.stage.WindowEvent;
 import javax.swing.JOptionPane;
@@ -48,6 +50,26 @@ public class LoginController implements Initializable{
     @FXML
     private Hyperlink create;
     
+    @FXML
+    private Hyperlink login_acc;
+
+    @FXML
+    private Button signup_btn;
+
+    @FXML
+    private TextField su_email;
+
+    @FXML
+    private PasswordField su_pass;
+
+    @FXML
+    private TextField su_username;
+
+      @FXML
+    private AnchorPane login_form;
+      
+          @FXML
+    private AnchorPane signup_form;
 
     // Database tools
     private Connection con;
@@ -93,7 +115,37 @@ public class LoginController implements Initializable{
             e.printStackTrace();
         }
     }
-
+    public void signup(ActionEvent event)
+    {
+        con = connectDb();
+        
+        try{
+            String sql = "INSERT INTO logintable VALUES (?,?,?)";
+            
+            st = con.prepareStatement(sql);
+            st.setString(1, su_email.getText());
+            st.setString(2,su_username.getText());
+            st.setString(3,su_pass.getText());
+            st.execute();
+            
+            JOptionPane.showMessageDialog(null,"Successfully Created new Account!");
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+        
+        
+    }
+    public void changeForm(ActionEvent event){
+        if(event.getSource()== login_acc){
+            
+            signup_form.setVisible(false);
+            login_form.setVisible(true);
+        }else if(event.getSource() == create)
+        {
+            signup_form.setVisible(true);
+            login_form.setVisible(false);
+        }
+    }
     @FXML
     private void textfield(javafx.scene.input.MouseEvent event) {
         if (event.getSource() == txtUName) {

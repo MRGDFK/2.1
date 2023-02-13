@@ -11,7 +11,7 @@
 
 <AnchorPane id="AnchorPane" prefHeight="500.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="SEN_pi_Browser.LoginController">
    <children>
-      <AnchorPane prefHeight="400.0" prefWidth="600.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+      <AnchorPane fx:id="login_form" prefHeight="400.0" prefWidth="600.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
             <AnchorPane layoutX="401.0" prefHeight="500.0" prefWidth="400.0" styleClass="login-bg" stylesheets="@design.css">
                <children>
@@ -27,7 +27,7 @@
                         <Font name="Bell MT" size="21.0" />
                      </font>
                   </Button>
-                  <Hyperlink fx:id="create" layoutX="110.0" layoutY="416.0" styleClass="hypertext-design" stylesheets="@design.css" text="Create New Account?">
+                  <Hyperlink fx:id="create" layoutX="110.0" layoutY="416.0" onAction="#changeForm" styleClass="hypertext-design" stylesheets="@design.css" text="Create New Account?">
                      <font>
                         <Font size="18.0" />
                      </font>
@@ -36,6 +36,34 @@
                </children>
             </AnchorPane>
             <AnchorPane prefHeight="500.0" prefWidth="410.0" styleClass="login-card" stylesheets="@design.css" />
+         </children>
+      </AnchorPane>
+      <AnchorPane fx:id="signup_form" prefHeight="400.0" prefWidth="600.0" visible="false">
+         <children>
+            <AnchorPane prefHeight="500.0" prefWidth="400.0" styleClass="login-bg" stylesheets="@design.css">
+               <children>
+                  <Label layoutX="111.0" layoutY="159.0" prefHeight="63.0" prefWidth="181.0" text="Sign Up" textFill="#f4f4f4">
+                     <font>
+                        <Font name="Calibri Bold" size="54.0" />
+                     </font>
+                  </Label>
+                  <TextField fx:id="su_username" layoutX="73.0" layoutY="278.0" prefHeight="35.0" prefWidth="254.0" promptText="  Enter Username" styleClass="textfield-design" stylesheets="@design.css" />
+                  <PasswordField fx:id="su_pass" layoutX="73.0" layoutY="319.0" prefHeight="35.0" prefWidth="254.0" promptText="  Enter Password!" styleClass="textfield-design" stylesheets="@design.css" />
+                  <Button fx:id="signup_btn" layoutX="143.0" layoutY="377.0" mnemonicParsing="false" onAction="#signup" prefHeight="43.0" prefWidth="114.0" styleClass="button-design" stylesheets="@design.css" text="Sign Up">
+                     <font>
+                        <Font name="Bell MT" size="21.0" />
+                     </font>
+                  </Button>
+                  <Hyperlink fx:id="login_acc" layoutX="106.0" layoutY="426.0" onAction="#changeForm" styleClass="hypertext-design" stylesheets="@design.css" text="Login your ACCOUNT?">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Hyperlink>
+                  <FontAwesomeIcon fill="#30363f" glyphName="USER_PLUS" layoutX="132.0" layoutY="142.0" size="10em" />
+                  <TextField fx:id="su_email" layoutX="73.0" layoutY="234.0" prefHeight="35.0" prefWidth="254.0" promptText="   Enter Email" styleClass="textfield-design" stylesheets="@design.css" />
+               </children>
+            </AnchorPane>
+            <AnchorPane layoutX="391.0" prefHeight="500.0" prefWidth="410.0" styleClass="login-card" stylesheets="@design.css" />
          </children>
       </AnchorPane>
    </children>
